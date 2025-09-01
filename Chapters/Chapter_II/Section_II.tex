@@ -1,0 +1,55 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+    \section{Nash equilibrium}
+    Having described what a strategic game is, now I can move on to our first solution concept: the Nash equilibrium. The Nash equilibrium is a strategy profile $a^*$ from which no player has incentives to deviate. More formally, 
+    \begin{mydef}[Nash equilibrium]
+        A strategy profile $(a^*)\in A$ is a \textbf{Nash equilibrium} if, for every $i\in N$ and $a_i\in A_i$,
+        \[
+            u_i(a_i^*,a_{-i}^*) \ge u_i(a_i,a_{-i}^*).
+        \]
+    \end{mydef}
+    In a Nash equilibrium, players choose their best strategies, given that everyone else is playing Nash equilibrium strategies. One other way to express it is in terms of the \textbf{best response function}
+    \begin{equation}
+        \label{Eq:NEBR}
+        BR_i(a_{-i}) = \argmax_{a_i}u_i(a_i,a_{-i}).
+    \end{equation}
+    Nash equilibrium means that players' strategies are \textbf{mutual best responses}: for all $i$,
+    \[
+        a_i^*\in BR(a_{-i}^*).
+    \]
+    \begin{myex}[The prisoner's dilemma]
+        In the prisoner's dilemma (example \ref{PDil}), the Nash equilibrium is unique: each player chooses to accuse. Notice that there is a strategy profile that is strictly better for both, in which both players deny the crime. Such a strategy profile is not an equilibrium because the best response to the other player's denying is to accuse.
+    \end{myex}
+
+    \begin{myex}[Battle of sexes]
+        There are two Nash equilibria. One consists of both going to a soccer game, and another where they both go to the theater. 
+    \end{myex}
+    \begin{myex}[Matching pennies]
+        It seems like there is no Nash equilibrium here, but something is missing as we'll see later.
+    \end{myex}
+
+    The following exercises are canonical, but I formulate most of them based on \cite{OR}.
+
+    \begin{myexe}[First-price sealed bid auction]
+        Let there be $N$ players, indexed as $1,2,...,N$, whose valuations of a good are $v_1>v_2>...>v_N$. These valuations are commonly known. An auctioneer proposes the following auction: all players simultaneously seal bids, with the highest bid getting the good and paying the bid price. In case of a tie, the player with the lowest index gets the good. Show that, in any Nash equilibrium, the player with the highest valuation gets the good.
+    \end{myexe}
+    \begin{myexe}[Second-price sealed bid auction]
+        Consider the same situation as before, except now the highest bidder pays the second-highest bid. Show that bidding $v_i$ is a \textit{weakly dominant action} for player $i$: player $i$'s payoff when he bids $v_i$ is at least as high as bidding anything else, no matter what the other players play. Show that there are equilibria in which player $1$ does not get the good.
+    \end{myexe}
+    \begin{myexe}[War of attrition]
+        Two players dispute over an object. Player $i$ attributes value $v_i$ to this object. Time is a continuous variable starting at $0$ and running indefinitely. Each player chooses when to concede the object to the other player; if the first player to concede does so at time $t$, the other player obtains the object at that time. If both players concede simultaneously, the object is split equally between them, with player $i$ receiving a payoff of $v_i/2$. Time is valuable: until the first concession each player loses one unit of the payoff per unit of time.
+
+        Formulate this situation as a strategic game and show that in all Nash equilibria one of the players concedes immediately.
+    \end{myexe}
+    \begin{myexe}[A location game]
+        Each of $n$ people chooses whether or not to become a political candidate, and if so which position to take. There is a continuum of citizens, each of whom has a favorite position: the distribution of favorite positions is given by a density function $f$ on $[0,1]$ with $f(x) > 0$ for all $x\in[0,1]$. A candidate attracts the votes of those citizens whose favorite positions are closer to his position than to the position of any other candidate; if $k$ candidates choose the same position then each receives a fraction $1/k$ of the votes that the position attracts. The winner of the competition is the candidate who receives the most votes. Each person prefers to be the unique winning candidate than to tie for first place, prefers to tie for a first place than to stay out of the competition, and prefers to stay out of competition than to enter and lose.
+
+        Formulate this situation as a strategic game, find the set of Nash equilibria when $n = 2$, and show that there is no Nash equilibrium when $n = 3$.
+    \end{myexe}
+    \begin{myexe}[The new york times game]
+        A big news journal in the US published an interesting game. They asked their readers -- which are many -- to guess a number between $0$ and $100$. The goal was to correctly guess what would be $2/3$ the average guess of all the players' answers.
+
+        Formulate this situation as a strategic game and find the set of Nash equilibria. What number would you pick?
+    \end{myexe}
+\end{document}

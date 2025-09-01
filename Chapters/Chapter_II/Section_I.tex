@@ -1,0 +1,80 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+    \section{Strategic games}
+    A strategic game is characterized by a set of players $N$, sets of actions $A_i$ for each player, and a payoff structure $(u_i)_i$. Let $A = \prod_i A_i$ denote the cartesian product of the sets of actions of all players. An element $a\in A$ is also called a \textbf{strategy profile}. Each player's payoff is a function $u_i\colon A\to\mathbb{R}$. In other words: the payoff of player $i$ is not only a function of his action but also the actions of everyone else, which I denote by $a_{-i}$. This assumption is crucial in game theory. If each player's payoff depended only on their actions, there would be no room for strategic behavior.
+
+    \begin{mydef}
+        A \textbf{strategic} game consists of:
+        \begin{enumerate}
+            \item A set of players $N$;
+            \item A set of actions $A_i$ for each player $i$;
+            \item A payoff structure $(u_i)_i$, in which $u_i\colon \prod A_i\to\mathbb{R}$ all depend on each other's actions.
+        \end{enumerate}
+    \end{mydef}
+    The classical examples of strategic games are the prisoner's dilemma, the Battle of Sexes, and matching pennies.
+    \begin{myex}[Prisoner's dilemma]
+    \label{PDil}
+        Two criminals ($N = \{1,2\}$) face up to 3 years in prison, but only if the prosecutor makes a good case to the court. To make a good case, the prosecutor must obtain accusations from the suspects. He sets up the following situation: each criminal is sent to a separate interrogation room without any prior communication between them. The prosecutor proposes the following deal: if both suspects accuse, the prosecutor will arrange a 1-year attenuation of time in jail, but if only one of them does so, the accuser is set free and the accused is sentenced to 3 years in prison. If none of the suspects accuses, the prosecutor does not make a good case, so the time in jail is 2 years shorter. I say the prisoners cooperate with each other if both of them deny the crime. Notice that, in this situation, the total time in jail is minimal. Let me normalize the payoff of 3 years in jail to zero. This situation can be represented in the following matrix.
+        \begin{figure}[htb]
+            \centering
+            \begin{tabular}{l|l|l}
+                  & Accuse  & Deny \\ \hline
+                    Accuse      & $1,1$ & $3,0$     \\ \hline
+                    Deny & $0,3$ & $2,2$    
+            \end{tabular}
+            \caption{Prisoner's dilemma}
+            \label{fig:PDil}
+        \end{figure}
+        Each row represents player $1$'s decision, while columns represent $2$'s decision. We often call them the row and the column player respectively. The first number in each cell is row player's payoff so, for example, the third cell in the second row corresponds to when player $1$ accuses and player $2$ denies. Player $1$'s payoff is $3$ because he is free, and player $2$'s payoff is zero because he took the maximal penalty.
+    \end{myex}
+    \begin{myex}[Battle of sexes]
+    \label{BoS}
+        João and Maria are deciding on a place to meet. João wants to watch flamengo x botafogo. Maria prefers the theater. They would rather be together. Their payoffs are as follows.
+        \begin{figure}[htb]
+            \centering
+            \begin{tabular}{l|l|l}
+                   & Soccer & Theater  \\ \hline
+            Soccer & $1,2$  & $0,0$ \\ \hline
+            Theater   & $0,0$  & $2,1$
+            \end{tabular}
+            \caption{Battle of sexes}
+            \label{fig:BoS}
+        \end{figure}
+        The row player is Maria and the column player is João. They get a payoff of $1$ for being together and an additional payoff for doing their preferred activities. Their payoffs are zero if they are not together.
+    \end{myex}
+    \begin{myex}[Matching pennies]
+    \label{MP}
+        João and Maria simultaneously place a coin on the ground, then they reveal it to each other. If the pennies match, João wins, if not, Maria wins. 
+        \begin{figure}[htb]
+        \centering
+        \begin{tabular}{l|l|l}
+              & Heads  & Tails  \\ \hline
+        Heads & $-1,1$ & $1,-1$ \\ \hline
+        Tails & $1,-1$ & $-1,1$
+        \end{tabular}
+        \caption{Matching pennies}
+        \label{fig:MP}
+        \end{figure}
+    \end{myex}
+
+    The examples above are particularly important to social scientists, but the theory developed so far is not limited to those applications. Game theory has been used in biology as well, in particular in the theory of evolution. A game that can give this particular flavor is the hawk-dove -- or chicken -- game
+
+    \begin{myex}[Hawk-dove (chicken) game]
+    \label{HDG}
+        Two predators must decide whether to fight over a prey. Each predator can take two possible attitudes. They can be hawks or doves: they can either fight or be passive. Their payoffs in each situation are as follows. The whole prey yields a total surplus of $4$. If they both fight for the prey, they end up sharing it at a cost of $1$ each. If only one fights, the hawk gets all the surplus with no cost, and if neither fights, they share the prey equally.
+        \begin{figure}[htb]
+        \centering
+        \begin{tabular}{l|l|l}
+             & Hawk  & Dove  \\ \hline
+        Hawk & $1,1$ & $4,0$ \\ \hline
+        Dove & $0,4$ & $2,2$
+        \end{tabular}
+        \caption{Hawk-dove}
+        \label{fig:HDG}
+        \end{figure}
+
+        Of course, it would be very strange to interpret this game as two animals making rational decisions, but the point is to obtain some insights into how can evolution end up selecting animals with certain characteristics. 
+    \end{myex}
+    
+\end{document}

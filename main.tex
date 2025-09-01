@@ -1,0 +1,147 @@
+\documentclass[a4paper, 12pt, openany]{book}
+
+\usepackage[top=1in, bottom=1in, left=.8in, right=.8in, head=20pt]{geometry}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}   
+\usepackage[toc,page]{appendix}
+\usepackage{graphicx}
+\usepackage{subfiles}
+\usepackage{amsmath}
+\usepackage{parskip}  
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amssymb}    
+\usepackage{mathtools}
+\usepackage{breqn}
+\usepackage{multirow}
+\usepackage[colorlinks=true, linkcolor=black, citecolor=black]{hyperref}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage{fancyhdr}% http://ctan.org/pkg/fancyhdr
+\usepackage{csquotes}
+\usepackage{epigraph}
+\usepackage{setspace}
+\usepackage{titling}
+\usepackage{tikz}
+\usepackage{dirtytalk}
+\usepackage[
+backend=biber,
+sorting=nyt,
+citestyle=authoryear,
+style=authoryear
+]{biblatex}
+
+%\usepackage{natbib}
+%\usepackage[backend=biber]{biblatex} 
+%\usepackage{tikz}	
+%\usetikzlibrary{arrows}
+%\usetikzlibrary{patterns}
+%\usepackage{verbatim}
+%\usepackage{pgfplots}
+%\usepgfplotslibrary{fillbetween}
+%\pgfplotsset{compat=1.8}
+%\usepackage{hyperref}
+%\usepackage{graphicx}
+%\usepackage{color}
+
+%%%%% pagestyle
+\pagestyle{fancy}% Change page style to fancy
+\fancyhf{}% Clear header/footer
+\renewcommand{\headrulewidth}{1.5pt}% Default \headrulewidth is 0.4pt
+\renewcommand{\footrulewidth}{1.5pt}% Default \footrulewidth is 0pt
+\chead{\nouppercase{\leftmark}}
+\lfoot{\thepage}
+\rfoot{}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{}}
+
+\renewcommand{\baselinestretch}{1.5} 
+\setlength{\parindent}{1pt}
+%\sloppy
+%\definecolor{lightgray}{gray}{0.5}
+%\setlength{\parindent}{0pt}
+%
+
+%%%%% numbering equations 
+\numberwithin{equation}{section}
+
+%%%%% Defining theorems, definitions, et coetera.
+\theoremstyle{plain}
+\newtheorem{mythe}{Theorem}[section]
+\newtheorem{mylem}[mythe]{Lemma}
+\newtheorem{myprop}[mythe]{Proposition}
+\newtheorem{mycor}[mythe]{Corollary}
+\newtheorem*{mythe*}{Theorem}
+
+\theoremstyle{definition}
+\newtheorem{mydef}{Definition}[section]
+\newtheorem{mycon}{Conjecture}[section]
+\newtheorem{myexe}{Exercise}[section]
+\newtheorem{myex}{Example}[section]
+\newtheorem{myax}{Axiom}[section]
+\newtheorem{myh}{Hypothesis}[section]
+\newtheorem{myprob}{Problem}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+
+
+% \newtheorem{mydef}{Definição}
+% \newtheorem{myax}{Axioma}
+% \newtheorem{mythe}{Teorema}
+% \newtheorem{myaf}{Proposição}
+% \newtheorem{mycor}{Corolário}
+% \newtheorem{mylem}{Lema}
+% \newtheorem{myfac}{Fato}
+% \newtheorem{myaff}{Afirmação}
+% \newtheorem{myex}{Exercício}
+% \newtheorem{mycon}{Conjectura}
+% \newtheorem*{mythe*}{Teorema}
+
+%%%%% Declaring math operators in order to make them look pretty in formulas
+\DeclareMathOperator*{\supp}{supp}
+\DeclareMathOperator{\card}{card}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\tr}{tr}
+\DeclareMathOperator*{\MC}{MC}
+\DeclareMathOperator*{\Cov}{Cov}
+\DeclareMathOperator*{\Var}{Var}
+
+%%%%%% Bibliographic resources
+\addbibresource{Refs.bib}
+\title{Notes on Game theory}
+\author{Pedro Ohi}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\chapter*{Preface}
+\subfile{Chapters/Preface/Preface}
+
+\chapter{Introduction}
+\subfile{Chapters/Chapter_I/Section_I}
+\subfile{Chapters/Chapter_I/Section_II}
+\subfile{Chapters/Chapter_I/Section_III}
+\subfile{Chapters/Chapter_I/Section_IV}
+\part{Strategic games}
+\chapter{Nash Equilibrium}
+\subfile{Chapters/Chapter_II/Section_I}
+\subfile{Chapters/Chapter_II/Section_II}
+\subfile{Chapters/Chapter_II/Section_III}
+
+\part{Extensive games with perfect information}
+
+\part{Extensive games with imperfect information}
+
+\begin{appendices}
+\chapter{Other topics}
+\subfile{Chapters/Appendix_A/Section_I}
+\chapter{Solutions to exercises}
+\subfile{Chapters/Appendix_B/Section_I}
+\end{appendices}
+
+\printbibliography
+\end{document}

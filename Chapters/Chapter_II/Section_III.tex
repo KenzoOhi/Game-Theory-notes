@@ -1,0 +1,56 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+    \section{Existence of Nash equilibrium}
+    We saw that some games have no Nash equilibria (see example \ref{MP}). That begs an important question: when do Nash equilibria exist? Answering this question has some advantages. We can check whether a particular game has a Nash equilibrium if it satisfies some list of criteria, without the need to actually compute it. Moreover, once you know whether an equilibrium exists, you can characterize it without necessarily computing it and without the risk of being an analysis of an empty set.
+
+    The best way to formulate the problem of existence is to recall the definition of the best response function in \eqref{Eq:NEBR}. Define $BR\colon A\to A$ as $BR(a) = \prod_iBR_i(a_{-i})$. Notice that, since for a given strategy profile there can be more than one best response, $BR(\cdot)$ cannot be a usual function. In fact, it can be set-valued. We call these functions \textbf{correspondences} or, simply, \textbf{set-valued functions}. The definition \eqref{Eq:NEBR} implies that a Nash equilibrium is a strategy profile $a^*$ such that $a^*\in BR(a^*)$. This is a well-defined mathematical problem called a \textbf{fixed point problem}. The nice thing about these problems is that they have a bunch of existence theorems. One that is particularly useful here is the \textbf{Kakutani fixed point theorem}.
+
+    \begin{mylem}[Kakutani fixed point theorem]
+        Let $X$ be a compact and convex subset of $\mathbb{R}^n$ and let $f\colon X\to X$ be a set-valued function for which
+        \begin{itemize}
+            \item for all $x\in X$ the set $f(x)$ is nonempty and convex;
+            \item the graph of $f$ is closed: for all sequences $(x_n)_n$ and $(y_n)_n$ such that $y_n\in f(x_n)$ for all $n$, $x_n\to x$, and $y_n\to y$, we have $y\in f(x)$.
+        \end{itemize}
+        Then there exists $x^*\in X$ such that $x^*\in f(x^*)$.
+    \end{mylem}
+    
+    One interesting exercise in \cite{OR} asks to show that each of the following four conditions is necessary for Kakutani's theorem:
+    \begin{enumerate}
+        \item $X$ is compact;
+        \item $X$ is convex;
+        \item $f(x)$ is convex for each $x\in X$;
+        \item $f$ has closed graph.
+    \end{enumerate}
+
+    \begin{myprop}
+        The strategic game $\langle N, (A_i)_i, (u_i)_i\rangle$ has a Nash equilibrium if, for all $i\in N$,
+        \begin{itemize}
+            \item the set $A_i$ is a nonempty, compact, and convex subset of a Euclidean space, and
+            \item the payoffs are continuous.
+        \end{itemize}
+    \end{myprop}   
+    \begin{proof}
+        Define $BR\colon A\to A$. Our goal is to prove that $B$ has a fixed point. In order to use Kakutani's fixed point theorem one needs $A$ compact and convex subset of a Euclidean space, and $B$ non-empty, convex-valued and closed graph. We have $A$ compact and convex by assumption in the proposition. One only needs to show that $BR$ is non-empty, convex-valued, and closed graph. But notice that, for all $i$, $a_{-i}$
+        \[
+            BR_i(a_{-i}) = \argmax_{a_i} u_i(a_i,a_{-i}).
+        \]
+        One can show nice properties about $BR_i$ by using \textbf{Berge's maximum theorem}:
+        \begin{mylem}[Berge's maximum theorem]
+            Let $X$ and $\Theta$ be two topological spaces. Let $C\colon \Theta\rightrightarrows X$ be a compact-valued, non-empty, and continuous correspondence. Let $f\colon X\times \Theta\to\mathbb{R}$ be a continuous function. Define the value function and correspondence $f^*\colon\Theta\to\mathbb{R}$ and $C^*\colon\Theta\rightrightarrows X$ by
+            \[
+                f^*(\theta) = \max_{x\in C(\theta)}f(x,\theta)
+            \]
+            and
+            \[
+                C^*(\theta) = \argmax_{x\in C(\theta)}f(x,\theta).
+            \]
+            Then,
+            \begin{enumerate}
+                \item $f^*$ is continuous;
+                \item $C^*$ is non-empty and compact-valued; and
+                \item $C^*$ is upper-hemicontinuous.
+            \end{enumerate}
+        \end{mylem}
+    \end{proof}
+\end{document}

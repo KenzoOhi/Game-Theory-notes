@@ -1,0 +1,13 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\section{Knowledge and common knowledge}
+You will often hear in game theory courses or seminars the term \textit{common knowledge}, and it is at the core of many game-theoretical models. In a game, each decision-maker's payoff depends on the actions of others. Because of that, players must hold beliefs over what are the most likely actions that the other players will take. But not only that. Because the other players' payoffs also depend upon my action, I also need to formulate beliefs over what is the other player's belief about my action, and, because this belief also affects the other player's actions, I also need to take into account my belief about the other player's belief about my belief about their action. If you let this process go on infinitely many times and substitute the word belief with knowledge, you are grasping the concept of \textbf{common knowledge}. In this section, I will discuss knowledge and common knowledge.
+
+\subsection{Preliminaries}
+I start with a set of agents, $N$, and a set of possible states of nature $\Omega$. The true state $\omega\in\Omega$ is unknown to the agents. I will assume that both sets are finite. The set $\Omega$, as we will see later, can accommodate the interpretation of uncertainty about each player's action. Here I am going to focus on modeling (common) knowledge about certain events $E\subseteq\Omega$. As a starting point, suppose that each agent has a prior collection of events that they know. Denote by $\mathcal{P}_i$ a partition of the set $\Omega$. Each agent is endowed with a partition $\mathcal{P}_i$. An element $P(\omega)\in\mathcal{P}_i$ represents an event of $\Omega$ that is known to agent $i$ when the state is $\omega\in P$. Notice that, since $\mathcal{P}_i$ is a partition, $\omega'\in P(\omega)\rightarrow P(\omega) = P(\omega')$ and $\omega'\notin P(\omega)\rightarrow P(\omega)\cap P(\omega')=\emptyset$. In this spirit, I define knowledge.
+
+\begin{mydef}
+    I say that player $i$ knows an event $E$ at the state $\omega$ if $E\subseteq P_i(\omega)$. I denote the set of states in which $i$ knows $E$ by $K_i(E)$.
+\end{mydef}
+\end{document}

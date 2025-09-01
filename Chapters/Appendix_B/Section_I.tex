@@ -1,0 +1,48 @@
+
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\section{Kakutani}
+One interesting exercise in \cite{OR} asks to show that each of the following four conditions is necessary for Kakutani's theorem:
+    \begin{enumerate}
+        \item $X$ is compact;
+        \item $X$ is convex;
+        \item $f(x)$ is convex for each $x\in X$;
+        \item $f$ has closed graph.
+    \end{enumerate}
+
+I am going to solve this exercise here. In order to show this, it suffices to obtain counter-examples. Let me start with 1. Suppose $X$ satisfies all the conditions for the theorem, except compactness. Here I use the fact that $X\subseteq\mathbb{R}^n$ to conclude that $X$ has to be either unbounded or not closed. So let us start with a counterexample where $X$ is unbounded. Take $X = \mathbb{R}^n$ and the continuous function $f(x) = f(x) + \iota$, in which $\iota$ is a vector of $1$s. $X$ is convex, closed, but not bounded, and $f$ is a special case of a set-valued function taking singleton values. For each $x$, $f(x)$ is trivially a convex set, and the graph of $f$ is closed because, as a function, $f$ is continuous. But $f$ has no fixed points because $f(x)=x+\iota\neq x$ for all $x$. Suppose now that $X$ is not closed. Consider the closed unit $n$-ball centered at the origin: $B[0]\equiv\{x|\|x\|\le1\}$ and fix one point $x_0$ at the boundary: $\|x_0\| = 1$. Consider the following continuous map defined on $B[0]$: $f(x) = \frac{1}{2}x + \frac{1}{2}x_0$. Let $X$ be $B[0]\backslash \{x_0\}$. This set is convex, bounded, but not closed. The restriction of $f$ to $X$ is itself continuous but has no fixed points.
+
+    Let us move to 2. Consider the torus, $X = \mathbb{S}^1\times\mathbb{S}^1\times...\times\mathbb{S}^1$, in which $\mathbb{S}^1$ is the one-dimensional sphere and the cartesian product is taken $n-2$ times (meaning that there are $n-1$ terms in the product). This set is compact, but not convex. Consider a linear transformation in $\mathbb{R}^2$ $\phi\colon(x,y)\mapsto \left(\frac{\sqrt{2}}{2}x-\frac{\sqrt{2}}{2}y,\frac{\sqrt{2}}{2}x + \frac{\sqrt{2}}{2}y\right)$. It maps the sphere into itself, is continuous, and leaves no fixed point. Thus, the mapping $f(x_1,x_2,...,x_{n-1}) = (\phi(x_1), \phi(x_2), ..., \phi(x_{n-1}))$ maps the torus into itself, is continuous and leaves no fixed point. This example suggests that the problem appears only when the dimension of the space $\mathbb{R}^n$ is even, but this is not the case. Take the 2-dimensional torus $\mathbb{S}^1\times\mathbb{S}^1$. The only reason why I represent it in $\mathbb{R}^4$ instead of embedding it in a $3$-dimensional space is because it is more convenient to do so. Changing such a representation is just a matter of change of coordinates.
+
+    Let us now do 3. Please, refer to the matching pennies example 
+    \ref{MP}. Recall that there are no equilibria for this game. This is so because the best response functions are not convex. Consider the following example, inspired by example \ref{MP} with some modifications to make it more mathematically appealing. Let $A = \{a_1,a_2\}$ be a set with two elements. Define $\Delta(A)=\{p\in[0,1]\}$, which can be interpreted as the set of all possible probabilities of the opponent's playing $a_1$. Define the following set-valued functions $B_1,B_2\colon\Delta(A)\to\Delta(A)$
+    \[
+        B_1(p) = 
+        \begin{cases}
+            \{1\},\text{ if }p>1/2\\
+            \{1,0\},\text{ if }p=1/2\\
+            \{0\},\text{ if }p<1/2.
+        \end{cases}
+    \]
+    \[
+        B_2(p) = 
+        \begin{cases}
+            \{0\},\text{ if }p>1/2\\
+            \{1,0\},\text{ if }p=1/2\\
+            \{1\},\text{ if }p<1/2.
+        \end{cases}
+    \]
+    Notice that $B_i(p)$ is the best response function of player $i$ when he believes that $-i$ will play $a_1$ with probability $p$. 
+    
+    Let $f\colon\Delta(A)^2\to\Delta(A)^2$ be
+    \[
+        f(p_1,p_2) = B_1(p_2)\times B_2(p_1).
+    \]
+    Notice that $\Delta(A)^2$ is a compact and convex set, and $f$ has closed graph. However, $f$ is not convex and has no fixed point (easy to verify by inspection). To make sure we all understand that $f$ has closed graph, I will provide a proof.
+
+    It suffices to show that $B_1$ has closed graph. The rest of the proof follows by analogy and the fact that the cartesian product of two closed graph functions is also closed graph. Let $(p_n)_n$ be a sequence in $[0,1]$ converging to some $p$. Let $y_n$ be a sequence on $B_1(p_n)$ converging to some $y$. Two things can happen. Either $p = 1/2$ or not. If $p\neq 1/2$, then, for arbitrarily large $n$, $p_n$ will be either smaller or larger than $1/2$. This implies that $y_n$ is constant and will be equal to $y$. Now, suppose $p = 1/2$. If $y_n$ converges, then it must be the case that $y_n$ is constant for arbitrarily large $n$. This means that $x_n$ must at some point converge to $p$ from some specific direction such that $y\in f(x_n)$ for all such $n$.
+
+    Finally, $4$. Take $X = B[0]$. Fix $x_0\in B[0]$ and let $f(x) = \frac{1}{2}x + \frac{1}{2}x_0$ at all points except $x_0$, in which case $f(x_0) = 0$. It is easy to show that this function is not continuous and, hence, not closed graph. This function does not have a fixed point either.
+\end{document}

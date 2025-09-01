@@ -1,0 +1,23 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+    \section{Solution concepts, common knowledge and beyond}
+    Game theory is interested in rational players acting strategically. To appreciate this problem, suppose you are playing a game with a friend. Because you're rational, you want to make the best decision. But your best decision depends on what your opponent decides, so you must put yourself in your opponent's shoes. Now, to properly put yourself in your opponent's shoes, you must know something about your opponent. For example, maybe you know that the opponent knows the rules of the game -- like payoffs, order of play, and information structure -- and that she will act so as to maximize her payoff. But then you will conclude that your opponent must also put herself in your shoes, so more knowledge is required about her, namely, what does she know about you? Suppose you know that she knows that you are a rational player as well. But since she is putting herself in your shoes, it matters to her -- and, \textit{a fortiori}, to you -- what you know about what she knows about you, so, not only should you know what she knows about you, but also what you know about what she knows about what you know about her. This process can go on indefinitely, and, when it does, we say there is \textbf{common knowledge} about rationality.
+
+    Common knowledge about rationality seems a bit demanding and, in fact, many theorists try to relax this assumption with things like k-level thinking -- which is like halting this recursive knowledge process at some level $k$. Because many solution concepts that I will use in these notes require common knowledge, I'll stick to common knowledge. There will be more discussion on this topic later. 
+
+    \subsection{Common knowledge is insufficient}
+    An important solution concept that requires common knowledge is Nash equilibrium. However, common knowledge is far from sufficient in a Nash equilibrium. It requires that players somehow accurately anticipate what the others play. In other words, players act like clairvoyants. There are two main interpretations for that: the steady-state and the deductive interpretation\footnote{~~The deductive interpretation is often called eductive.}
+
+    Economists more widely accept the steady-state interpretation. According to it, the Nash Equilibrium outcome is the steady state of a process where players observe past plays in similar games. This interpretation relies on some assumptions:
+    \begin{enumerate}
+        \item There are no strategic links between each realization of the game. At each such realization, players only care about the instantaneous payoffs of the game. 
+        \item Past outcomes of a game are informative about future outcomes. 
+        \item This game is reproducible. This assumption rules out situations that are entirely new to the players.
+    \end{enumerate}
+
+    The second interpretation assumes that players use their intrinsic knowledge to correctly guess how the game will be played. The argument does not rely upon the reproducibility of a game but does make some epistemic assumptions about the players. Those interpretations are philosophically very distinct, and I do not intend to go too deep into them. My goal here is modest: to teach how solution concepts work.
+
+    Whether one should take these interpretations seriously depends on your attitude toward economic models in general. There is a particular view, advocated by \cite{F}, according to which assumptions do not matter. The relevance of a model can only be measured by its predictive power. I personally disagree with this perspective, as I think it is impossible to make predictions about a certain real phenomenon without some assumptions about the real world.\footnote{~~Of course, the argument here should be more involved, but I'll leave it to another time.}
+
+\end{document}
